@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1C2333;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.editor-container {
+    width: 50%;
+    height: 500px;
+}
+
+.CodeMirror {
+    height: 100% !important;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.output {
+    width: 45%;
+}
+
+pre {
+    background: #2e2e2e;
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 500px;
+}

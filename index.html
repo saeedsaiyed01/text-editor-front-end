@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Debugger</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="editor-container">
+            <textarea id="code"></textarea>
+        </div>
+        <div class="output">
+            <pre id="output"></pre>
+            <button onclick="runCode()">Run</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+
+    <script>
+        // Initialize CodeMirror editor
+        var codeMirrorEditor = CodeMirror.fromTextArea(document.getElementById('code'), {
+            mode: "javascript",
+            lineNumbers: true,
+            lineWrapping: true // Enable line wrapping
+        });
+
+        function runCode() {
+            try {
+                var code = codeMirrorEditor.getValue();
+                var outputElement = document.getElementById('output');
+                outputElement.textContent = '';
+
+                // Redirect console.log output
+                var oldLog = console.log;
+                console.log = function(message) {
+                    outputElement.textContent += message + '\n';
+                };
+
+                // Execute the code
+                eval(code);
+
+                // Restore original console.log function
+                console.log = oldLog;
+            } catch (error) {
+                document.getElementById('output').textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+
+</html>
