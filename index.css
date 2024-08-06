@@ -34,3 +34,51 @@ pre {
     overflow: auto;
     max-height: 500px;
 }
+
+
+/* navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2e2e2e;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-item {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 0.5rem;
+}
+
+.run-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.badge {
+    background-color: #666600;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
